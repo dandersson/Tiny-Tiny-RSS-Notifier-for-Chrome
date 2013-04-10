@@ -57,9 +57,23 @@ label {
   font-style: italic;
 }
 
-.status {
-  color: #88b0ff;
+.status,
+.error,
+.success {
   display: none;
   font-size: 14px;
+  font-weight: bold;
+}
+
+.success {
+  color: #88b0ff;
+}
+
+.error {
+  color: red;
+}
+
+.error li {
+  color: black;
 }
 

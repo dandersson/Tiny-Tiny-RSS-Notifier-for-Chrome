@@ -1,35 +1,25 @@
 /* Option handling. */
 
 function save() {
-
-  var s = $('status');
-
-  s.innerHTML = 'Options saved successfully.';
-
+  /* The forms themselves should have done all input validation, but let's do
+   * sanity check here as well. */
   var f = document.forms['options'];
+  var errors = [];
 
   if (f.site_url.value.length > 0)
     localStorage['site_url'] = f.site_url.value;
-  else {
-    s.innerHTML = 'Error: Site URL cannot be blank.';
-    new Effect.Highlight(f.site_url);
-  }
+  else
+    errors.push('Site URL cannot be blank.');
 
   if (f.login.value.length > 0 || f.single_user.checked)
     localStorage['login'] = f.login.value;
-  else {
-    s.innerHTML = 'Error: Login required unless single-user mode is enabled.';
-    new Effect.Highlight(f.login);
-  }
+  else
+    errors.push('Login required unless single-user mode is enabled.');
 
-  var update_interval = parseInt(f.update_interval.value);
-
-  if (update_interval > 0)
+  if (parseInt(f.update_interval.value) > 0)
     localStorage['update_interval'] = f.update_interval.value;
-  else {
-    s.innerHTML = 'Error: Update interval must be greater than zero.';
-    new Effect.Highlight(f.update_interval);
-  }
+  else
+    errors.push('Update interval must be greater than zero.');
 
   localStorage['show_badge'] = (f.show_badge.checked) ? '1' : '0';
   localStorage['show_fresh'] = (f.show_fresh.checked) ? '1' : '0';
@@ -37,10 +27,15 @@ function save() {
   localStorage['update_feeds'] = (f.update_feeds.checked) ? '1' : '0';
 
   var d = new Date();
-
   localStorage['prefs_updated'] = d.getTime();
 
-  Element.show(s);
+  if (errors.length != 0) {
+    /* localStorage likes strings. Serialize with '+' as record separator. */
+    localStorage['errors'] = errors.join('+');
+  }
+  else
+    localStorage['success'] = 'Settings updated successfully at ' +
+        d.toTimeString() + '.';
 
   return false;
 }
@@ -53,6 +48,30 @@ function single_user_toggle() {
 
 function init() {
   var f = document.forms['options'];
+  var s = document.getElementById('status');
+
+  if (localStorage['errors']) {
+    var ul = document.createElement('ul');
+    var errors = localStorage['errors'].split('+');
+    localStorage.removeItem('errors');
+
+    for (var i = 0; i < errors.length; i++) {
+      var li = document.createElement('li');
+      li.appendChild(document.createTextNode(errors[i]));
+      ul.appendChild(li);
+    }
+
+    s.setAttribute('class', 'error');
+    s.appendChild(document.createTextNode('Errors were encountered:'));
+    s.appendChild(ul);
+    s.style.display = 'block';
+  }
+  else if (localStorage['success']) {
+    s.setAttribute('class', 'success');
+    s.appendChild(document.createTextNode(localStorage['success']));
+    localStorage.removeItem('success');
+    s.style.display = 'block';
+  }
 
   if (localStorage['site_url'])
     f.site_url.value = localStorage['site_url'];
