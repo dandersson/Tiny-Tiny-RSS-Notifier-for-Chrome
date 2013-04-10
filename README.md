@@ -1,6 +1,6 @@
 Tiny Tiny RSS Notifier for Chrome
 =================================
-A simple Google Chrome extension that polls a given [Tiny Tiny RSS](http://tt-rss.org/) server and displays the number of "fresh" articles.
+A simple Google Chrome extension that polls a given [Tiny Tiny RSS](http://tt-rss.org/) server and displays the number of either unread or "fresh" articles.
 
 Usage
 -----
