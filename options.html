@@ -1,65 +1,65 @@
 <html>
 <head>
-<title>Tiny Tiny RSS Notifier Options</title>
-<link rel="stylesheet" href="css/options.css" type="text/css"/>
-<script type="text/javascript" src="lib/prototype.js"></script>
-<script type="text/javascript" src="lib/scriptaculous/scriptaculous.js?load=effects,dragdrop,controls"></script>
-<script type="text/javascript" src="js/options.js"></script>
+  <title>Tiny Tiny RSS Notifier Options</title>
+  <link rel="stylesheet" href="css/options.css" type="text/css"/>
+  <script type="text/javascript" src="lib/prototype.js"></script>
+  <script type="text/javascript" src="lib/scriptaculous/scriptaculous.js?load=effects,dragdrop,controls"></script>
+  <script type="text/javascript" src="js/options.js"></script>
 
 <body>
-	<div class="floatingLogo"><img src="images/icon_128.png"></div>
+  <div class="floatingLogo"><img src="images/icon_128.png"></div>
 
-	<h1>Tiny Tiny RSS Notifier</h1>
+  <h1>Tiny Tiny RSS Notifier</h1>
 
-	<p class='last-updated'>Last update: <span id="last_updated">N/A</span></p>
+  <p class="last-updated">Last update: <span id="last_updated">N/A</span></p>
 
-	<div id="status"></div>
+  <div id="status" class="status"></div>
 
-	<h2>Options</h2>
+  <h2>Options</h2>
 
-	<form name="options" id="options">
-		<fieldset>
-			<label>URL of your Tiny Tiny RSS installation:</label>
-			<input name="site_url" size="60" value=""/>
-		</fieldset>
+  <form name="options" id="options">
+    <fieldset>
+      <label>URL of your Tiny Tiny RSS installation:</label>
+      <input name="site_url" size="60" value=""/>
+    </fieldset>
 
-		<fieldset>
-			<label>Login:</label>
-			<input name="login" size="30" value=""/>
-		</fieldset>
+    <fieldset>
+      <label>Login:</label>
+      <input name="login" size="30" value=""/>
+    </fieldset>
 
-		<fieldset>
-			<label>Single-user mode:</label>
-			<input name="single_user" type="checkbox"  value="1"/>
-		</fieldset>
+    <fieldset>
+      <label>Single-user mode:</label>
+      <input name="single_user" type="checkbox"  value="1"/>
+    </fieldset>
 
-		<fieldset>
-			<label>Update interval (in minutes):</label>
-			<input name="update_interval" size="30" value=""/>
-		</fieldset>
+    <fieldset>
+      <label>Update interval (in minutes):</label>
+      <input name="update_interval" size="30" value=""/>
+    </fieldset>
 
-		<fieldset>
-			<label>Show badge:</label>
-			<input name="show_badge" type="checkbox"  value="1"/>
-		</fieldset>
+    <fieldset>
+      <label>Show badge:</label>
+      <input name="show_badge" type="checkbox" value="1"/>
+    </fieldset>
 
-		<fieldset>
-			<label>Badge shows fresh articles:</label>
-			<input name="show_fresh" type="checkbox"  value="1"/>
-			<span class="note">(requires Tiny Tiny RSS 1.4.1 or trunk)</span>
-		</fieldset>
+    <fieldset>
+      <label>Badge shows fresh articles:</label>
+      <input name="show_fresh" type="checkbox" value="1"/>
+      <span class="note">(requires Tiny Tiny RSS 1.4.1 or trunk)</span>
+    </fieldset>
 
-		<fieldset>
-			<label>Periodically try to update tt-rss feeds:</label>
-			<input name="update_feeds" type="checkbox"  value="1"/>
-			<span class="note">Please use this as a last resort method only in case you can't update your feeds <a target="_blank" href="http://tt-rss.org/wiki/UpdatingFeeds">in any other way</a>. Last updated: <span id='feeds-last-updated'>N/A</span></span>
-		</fieldset>
+    <fieldset>
+      <label>Periodically try to update tt-rss feeds:</label>
+      <input name="update_feeds" type="checkbox" value="1"/>
+      <span class="note">Please use this as a last resort method only in case you can't update your feeds <a target="_blank" href="http://tt-rss.org/wiki/UpdatingFeeds">in any other way</a>. Last updated: <span id="feeds-last-updated">N/A</span></span>
+    </fieldset>
 
-		<input type="submit" value="Save"/>
-	</form>
+    <input type="submit" value="Save"/>
+  </form>
 
-	<p>Copyright &copy; 2010-2012
-		<a target="_blank" href="http://tt-rss.org">Andrew Dolgov</a>. 
-		Licensed under GNU GPL version 2.</p>
+  <p>Copyright © 2010‒2012
+    <a target="_blank" href="http://tt-rss.org">Andrew Dolgov</a>. 
+    Licensed under GNU GPL version 2.</p>
 
 </body>
