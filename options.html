@@ -23,12 +23,12 @@
   <form name="options" id="options">
     <fieldset>
       <label>URL of your Tiny Tiny RSS installation:</label>
-      <input name="site_url" size="60">
+      <input name="site_url" size="60" type="url" placeholder="http://example.com/tt-rss" required>
     </fieldset>
 
     <fieldset>
       <label>Login:</label>
-      <input name="login" size="30">
+      <input name="login" size="30" placeholder="username" required title="Required unless single-user mode is enabled.">
     </fieldset>
 
     <fieldset>
@@ -38,7 +38,7 @@
 
     <fieldset>
       <label>Update interval (in minutes):</label>
-      <input name="update_interval" size="30">
+      <input name="update_interval" size="30" placeholder="15" required pattern="\d+" title="Integer values greater than zero.">
     </fieldset>
 
     <fieldset>

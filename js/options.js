@@ -11,14 +11,14 @@ function save() {
   if (f.site_url.value.length > 0)
     localStorage['site_url'] = f.site_url.value;
   else {
-    s.innerHTML = 'Error: Site url cannot be blank.';
+    s.innerHTML = 'Error: Site URL cannot be blank.';
     new Effect.Highlight(f.site_url);
   }
 
-  if (f.login.value.length > 0)
+  if (f.login.value.length > 0 || f.single_user.checked)
     localStorage['login'] = f.login.value;
   else {
-    s.innerHTML = 'Error: Login cannot be blank.';
+    s.innerHTML = 'Error: Login required unless single-user mode is enabled.';
     new Effect.Highlight(f.login);
   }
 
@@ -56,13 +56,9 @@ function init() {
 
   if (localStorage['site_url'])
     f.site_url.value = localStorage['site_url'];
-  else
-    f.site_url.value = 'http://example.dom/tt-rss/';
 
   if (localStorage['login'])
     f.login.value = localStorage['login'];
-  else
-    f.login.value = 'user';
 
   if (localStorage['update_interval'])
     f.update_interval.value = localStorage['update_interval'];
@@ -107,7 +103,9 @@ function init() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('options').addEventListener('submit', save);
+  /* Need to listen to `click` instead of submit to enable HTML5 checking of
+   * values. */
+  document.getElementById('options').addEventListener('click', save);
   document.querySelectorAll('input[name$="single_user"]')[0].addEventListener(
     'change', single_user_toggle);
   init();
