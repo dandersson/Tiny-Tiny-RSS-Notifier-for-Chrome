@@ -50,6 +50,19 @@ function init() {
   var f = document.forms['options'];
   var s = document.getElementById('status');
 
+  /* TODO: Remove this if-clause future update after it has had time to
+   * propagate to users.
+   *
+   * This migrates from earlier (version 0.5.2) localStorage index naming.  In
+   * many ways it's overkill since the only problem after an initial item
+   * count/feed update after extension upgrade that would occur is that a
+   * localStorage index would linger and waste ~20 B or something, but let's
+   * try to do it nicely :-) . */
+  if (localStorage['last_feeds_updated']) {
+    localStorage['feeds_last_updated'] = localStorage['last_feeds_updated'];
+    localStorage.removeItem('last_feeds_updated');
+  }
+
   if (localStorage['errors']) {
     var ul = document.createElement('ul');
     var errors = localStorage['errors'].split('+');
@@ -107,12 +120,7 @@ function init() {
   single_user_toggle();
 
   var d = new Date();
-  var last_updated = document.getElementById('last_updated');
-  /* TODO: Fix this legacy naming inconsistency between
-   * * feeds_last_updated
-   * * feeds-last-updated
-   * * last_feeds_updated
-   */
+  var last_updated = document.getElementById('last-updated');
   var feeds_last_updated = document.getElementById('feeds-last-updated');
 
   if (localStorage['last_updated']) {
@@ -122,8 +130,8 @@ function init() {
   else
     last_updated.appendChild(document.createTextNode('not yet updated.'));
 
-  if (localStorage['last_feeds_updated']) {
-    d.setTime(localStorage['last_feeds_updated']);
+  if (localStorage['feeds_last_updated']) {
+    d.setTime(localStorage['feeds_last_updated']);
     feeds_last_updated.appendChild(document.createTextNode(d.toString()));
   }
   else

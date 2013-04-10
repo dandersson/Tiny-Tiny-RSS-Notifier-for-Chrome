@@ -23,7 +23,7 @@ function update_feeds() {
   xhr.send();
 
   var d = new Date();
-  localStorage['last_feeds_updated'] = d.getTime();
+  localStorage['feeds_last_updated'] = d.getTime();
 }
 
 function update() {
