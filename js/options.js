@@ -106,19 +106,29 @@ function init() {
 
   single_user_toggle();
 
-  var last_updated = $('last_updated');
-
   var d = new Date();
+  var last_updated = document.getElementById('last_updated');
+  /* TODO: Fix this legacy naming inconsistency between
+   * * feeds_last_updated
+   * * feeds-last-updated
+   * * last_feeds_updated
+   */
+  var feeds_last_updated = document.getElementById('feeds-last-updated');
 
-  d.setTime(localStorage['last_updated']);
+  if (localStorage['last_updated']) {
+    d.setTime(localStorage['last_updated']);
+    last_updated.appendChild(document.createTextNode(d.toString()));
+  }
+  else
+    last_updated.appendChild(document.createTextNode('not yet updated.'));
 
-  last_updated.innerHTML = d;
-
-  var feeds_last_updated = $('feeds-last-updated');
-
-  d.setTime(localStorage['last_feeds_updated']);
-
-  feeds_last_updated.innerHTML = d;
+  if (localStorage['last_feeds_updated']) {
+    d.setTime(localStorage['last_feeds_updated']);
+    feeds_last_updated.appendChild(document.createTextNode(d.toString()));
+  }
+  else
+    feeds_last_updated.appendChild(document.createTextNode(
+        'not yet updated.'));
 }
 
 document.addEventListener('DOMContentLoaded', function() {
