@@ -30,7 +30,11 @@ function save() {
   localStorage['prefs_updated'] = d.getTime();
 
   if (errors.length != 0) {
-    /* localStorage likes strings. Serialize with '+' as record separator. */
+    /* localStorage likes strings. Serialize with '+' as record separator.
+     *
+     * TODO: Migrate to the `chrome.storage` module
+     * <https://developer.chrome.com/extensions/storage.html>. Then we can
+     * store arrays directly and other nice things. */
     localStorage['errors'] = errors.join('+');
   }
   else
