@@ -10,5 +10,5 @@ Alternatively you can grab it from GitHub, enable "Developer mode" in the local 
 
 Bug reports
 -----------
-Preferably via [the project page on GitHub](https://github.com/dandersson/Tiny-Tiny-RSS-Notifier-for-Chrome) or [the TT-RSS forum](http://tt-rss.org/forum/).
+Preferably via [the project page on GitHub](https://github.com/dandersson/Tiny-Tiny-RSS-Notifier-for-Chrome) or [the TT-RSS forum](http://tt-rss.org/forum/viewforum.php?f=1).
 
