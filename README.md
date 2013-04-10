@@ -6,7 +6,7 @@ Usage
 -----
 Install the extension through [its entry in the Chrome web store](https://chrome.google.com/webstore/detail/tiny-tiny-rss-notifier/pehjgkflglcdbmhkjjpfjomemgaaljeb) and fill out the hopefully self-explaining configuration options.
 
-Alternatively you can grab it from GitHub, enable "Developer mode" in [the local Chrome extensions list](chrome://extensions) and load it manually. This should only be interesting in case you want to develop the extension.
+Alternatively you can grab it from GitHub, enable "Developer mode" in the local Chrome extensions list and load it manually. This should only be interesting in case you want to develop the extension.
 
 Bug reports
 -----------
