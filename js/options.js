@@ -128,7 +128,7 @@ function init() {
     last_updated.appendChild(document.createTextNode(d.toString()));
   }
   else
-    last_updated.appendChild(document.createTextNode('not yet updated.'));
+    last_updated.appendChild(document.createTextNode('not yet polled.'));
 
   if (localStorage['feeds_last_updated']) {
     d.setTime(localStorage['feeds_last_updated']);
