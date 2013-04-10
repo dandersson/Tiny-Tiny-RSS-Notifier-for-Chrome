@@ -1,6 +1,7 @@
 /*
  * Conventions followed:
  * * <http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml>
+ * * <http://csslint.net>
  */
 
 body {
@@ -56,7 +57,7 @@ label {
   font-style: italic;
 }
 
-#status {
+.status {
   color: #88b0ff;
   display: none;
   font-size: 14px;
