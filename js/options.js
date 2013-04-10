@@ -46,8 +46,12 @@ function save() {
 
 function single_user_toggle() {
   var f = document.forms['options'];
-
   f.login.disabled = f.single_user.checked;
+}
+
+function show_badge_toggle() {
+  var f = document.forms['options'];
+  f.show_fresh.disabled = !f.show_badge.checked;
 }
 
 function init() {
@@ -122,6 +126,7 @@ function init() {
     f.update_feeds.checked = false;
 
   single_user_toggle();
+  show_badge_toggle();
 
   var d = new Date();
   var last_updated = document.getElementById('last-updated');
@@ -149,6 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('options').addEventListener('click', save);
   document.querySelectorAll('input[name$="single_user"]')[0].addEventListener(
     'change', single_user_toggle);
+  document.querySelectorAll('input[name$="show_badge"]')[0].addEventListener(
+    'change', show_badge_toggle);
   init();
 });
 
